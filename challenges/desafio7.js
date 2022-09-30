@@ -1,10 +1,8 @@
 db.produtos.find({
-  $nor: [
-    { vendidos: 50 },
-    { tag: true },
-  ],
+    vendidos: { $ne: 50 },
+    tags: { $exists: 0 },
 }, {
-  name: true,
+  nome: true,
   vendidos: true,
   _id: false,
 });
